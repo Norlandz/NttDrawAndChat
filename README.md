@@ -11,4 +11,8 @@
 
 ### How to use
 
+https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%2020230518_2309_00326%20ReceiveNetworkMsg%20.mp4
+
+https://github.com/Norlandz/Norlandz.github.io/blob/main/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%2020230518_2309_00326%20ReceiveNetworkMsg%20.mp4
+
 [[Link to Instructions] https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
