@@ -11,8 +11,12 @@
         But with much less Functionalities.)
 *   ![DrawAndChatApp Demo frame85](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%20Demo%20frame85.png)
 
-### Demo & How to use
+### Demo
 
-https://github.com/Norlandz/NttDrawAndChat/assets/43581880/3087a12c-a6d1-4e25-8ad2-3f305ba058ad
+- vv
 
-[[Link to Instructions] https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+  https://github.com/Norlandz/NttDrawAndChat/assets/43581880/3087a12c-a6d1-4e25-8ad2-3f305ba058ad
+
+### How to use
+
+[[Link to Instructions / Documentation] https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
