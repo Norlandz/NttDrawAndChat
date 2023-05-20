@@ -1,5 +1,7 @@
 ## NttDrawAndChat
 
+[![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+
 ### Introduction
 
 *   DrawAndChatApp is an App that supports::
@@ -9,10 +11,8 @@
         But with much less Functionalities.)
 *   ![DrawAndChatApp Demo frame85](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%20Demo%20frame85.png)
 
-### How to use
+### Demo & How to use
 
-https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%2020230518_2309_00326%20ReceiveNetworkMsg%20.mp4
-
-https://github.com/Norlandz/Norlandz.github.io/blob/main/NttDrawAndChat/DrawAndChatApp_Instruction/image/DrawAndChatApp%2020230518_2309_00326%20ReceiveNetworkMsg%20.mp4
+https://github.com/Norlandz/NttDrawAndChat/assets/43581880/3087a12c-a6d1-4e25-8ad2-3f305ba058ad
 
 [[Link to Instructions] https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
