@@ -1,0 +1,7 @@
+package com.redfrog.note.qualification;
+
+import com.redfrog.note.fundamental.EventSig;
+
+public class EventQualificationFile extends EventSig {
+
+}

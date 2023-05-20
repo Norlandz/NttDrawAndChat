@@ -1,0 +1,5 @@
+package com.redfrog.note.session;
+
+public class SepvmSession {
+
+}

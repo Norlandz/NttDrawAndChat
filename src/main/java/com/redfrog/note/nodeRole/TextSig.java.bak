@@ -1,0 +1,9 @@
+package com.redfrog.note.general.role;
+
+import com.redfrog.note.fundamental.NodeSig;
+
+public class TextSig extends NodeSig {
+
+  //TODO
+
+}

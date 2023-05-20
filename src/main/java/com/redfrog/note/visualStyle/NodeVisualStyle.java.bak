@@ -1,0 +1,59 @@
+package com.redfrog.note.general.visualStyle;
+
+import java.io.Serializable;
+
+import com.redfrog.note.fundamental.NodeSig;
+
+import javafx.css.CssMetaData;
+import javafx.css.StyleConverter;
+import javafx.css.Styleable;
+
+/**
+[]
+ scene.getStylesheets().add("Style.css");
+<>
+https://stackoverflow.com/questions/35372288/use-css-in-java-applications
+
+
+Use CSS in Java Applications - Stack Overflow
+https://stackoverflow.com/questions/35372288/use-css-in-java-applications
+
+How to parse css file in Java - Stack Overflow
+https://stackoverflow.com/questions/36843307/how-to-parse-css-file-in-java
+
+Looking for a CSS Parser in java - Stack Overflow
+https://stackoverflow.com/questions/1513587/looking-for-a-css-parser-in-java
+
+java - Parsing CSS with jSoup - Stack Overflow
+https://stackoverflow.com/questions/15592476/parsing-css-with-jsoup
+
+phax/ph-css: Advanced Java CSS 3 parser and builder
+https://github.com/phax/ph-css
+
+radkovo/jStyleParser: jStyleParser is a CSS parser written in Java. It has its own application interface that is designed to allow an efficient CSS processing in Java and mapping the values to the Java data types. It parses CSS 2.1 style sheets into structures that can be efficiently assigned to DOM elements. It is intended be the primary CSS parser for the CSSBox library. While handling errors, it is user agent conforming according to the CSS specification.
+https://github.com/radkovo/jStyleParser
+
+CSS Parser – Welcome to CSS Parser
+https://cssparser.sourceforge.net/
+
+
+Convert CSS to JavaFx CSS - Stack Overflow
+https://stackoverflow.com/questions/20393053/convert-css-to-javafx-css
+
+[]
+vbox.getStylesheets().add("style1/button-styles.css");
+<>
+https://jenkov.com/tutorials/javafx/css-styling.html
+~~// looked and guess
+
+
+dk downcast & said that really need serializable ..
+
+extends CssMetaData seems a mess... 
+
+*/
+public class NodeVisualStyle implements Serializable {
+
+
+
+}

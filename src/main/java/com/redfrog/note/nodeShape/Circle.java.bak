@@ -1,0 +1,7 @@
+package com.redfrog.note.general.space;
+
+public class Circle extends Shape {
+
+  public Double radius;
+
+}

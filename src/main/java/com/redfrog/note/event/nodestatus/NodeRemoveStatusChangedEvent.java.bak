@@ -1,0 +1,14 @@
+package com.redfrog.note.event.nodestatus;
+
+import com.redfrog.note.event.NodeEvent;
+import com.redfrog.note.fundamental.NodeSig;
+import com.redfrog.note.fundamental.NodeSigStatus.RemoveStatus;
+
+public class NodeRemoveStatusChangedEvent extends NodeEvent {
+  
+  public RemoveStatus removeStatus_prev;
+  public RemoveStatus removeStatus_curr;
+  
+  public NodeRemoveStatusChangedEvent(NodeSig nodeMain) { super(nodeMain); }
+
+}

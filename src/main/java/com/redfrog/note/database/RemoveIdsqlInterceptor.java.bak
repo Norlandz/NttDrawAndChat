@@ -1,0 +1,7 @@
+//package com.redfrog.note;
+//
+//import org.hibernate.EmptyInterceptor;
+//
+//public class RemoveIdsqlInterceptor extends EmptyInterceptor {
+//
+//}

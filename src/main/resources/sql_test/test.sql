@@ -1,0 +1,112 @@
+-- DROP DATABASE IF EXISTS db_test;
+-- CREATE DATABASE IF NOT EXISTS db_test;
+-- USE db_test;
+
+DROP DATABASE IF EXISTS db_drawandchat_01;
+CREATE DATABASE IF NOT EXISTS db_drawandchat_01;
+
+DROP DATABASE IF EXISTS db_drawandchat_02;
+CREATE DATABASE IF NOT EXISTS db_drawandchat_02;
+
+-- DROP DATABASE IF EXISTS db_drawandchat_03;
+-- CREATE DATABASE IF NOT EXISTS db_drawandchat_03;
+
+-- DROP DATABASE IF EXISTS db_drawandchat_04;
+-- CREATE DATABASE IF NOT EXISTS db_drawandchat_04;
+
+-- --------------------------
+
+USE db_drawandchat_02;
+USE db_drawandchat_01;
+
+-- 
+
+SELECT * FROM `entity_general`;
+SELECT * FROM `event_sig`;
+SELECT * FROM `node_event`;
+SELECT * FROM `node_created_event`;
+SELECT * FROM `node_shape_size_changed_event`;
+SELECT * FROM `node_moved_event`;
+SELECT * FROM `node_removed_event`;
+SELECT * FROM `arrow_moved_event`;
+SELECT * FROM `function_execution_event`;
+SELECT * FROM `paint_dot_changed_event`;
+
+SELECT * FROM `entity_general`
+JOIN `event_sig` USING(id_sql)
+LEFT JOIN `node_event` USING(id_sql)
+LEFT JOIN `node_created_event` USING(id_sql)
+LEFT JOIN `node_shape_size_changed_event` USING(id_sql)
+LEFT JOIN `node_moved_event` USING(id_sql)
+ORDER BY `creation_time` ASC, `id_sql` ASC;
+
+SELECT * FROM `entity_general`;
+SELECT * FROM `node_sig`;
+
+SELECT * FROM `entity_general`
+JOIN `node_sig` USING(id_sql);
+
+-- SELECT * FROM `entity_general`
+-- JOIN `event_sig` USING(id_sql)
+-- JOIN `arrow_moved_event` USING(id_sql);
+
+-- -----------------------------
+
+-- SELECT COUNT(DISTINCT `table_name`) FROM `information_schema`.`columns`  WHERE `table_schema` = 'db_drawandchat_01';
+
+-- show tables;
+
+-- SELECT EXISTS(
+-- SELECT * 
+-- FROM information_schema.tables
+-- WHERE table_schema = 'db_drawandchat_01' 
+--     AND table_name = 'entity_general'
+-- LIMIT 1
+-- );
+
+-- SELECT EXISTS (SELECT 1 FROM `entity_general`);
+
+
+-- --------------------------
+
+-- SELECT * FROM `entity_general`;
+-- SELECT * FROM `ball`;
+-- SELECT * FROM `rock`;
+-- -- SELECT * FROM `rock_aud`;
+
+-- SELECT * FROM `entity_general`
+-- LEFT JOIN `ball` USING(id_sql)
+-- LEFT JOIN `rock` USING(id_sql);
+
+-- --------------------------
+
+-- ;; SELECT * 
+-- ;; FROM `node_event` AS `aa`
+-- ;; LEFT JOIN `node_created_event` AS `bb` ON `aa`.`id_sql` = `bb`.`id_sql`;
+
+-- --------------------------
+
+-- DROP TABLE IF EXISTS `entity_general`;
+-- /*!40101 SET @saved_cs_client     = @@character_set_client */;
+-- /*!50503 SET character_set_client = utf8mb4 */;
+-- CREATE TABLE `entity_general` (
+--   `entity_general_type` varchar(31) NOT NULL,
+--   `id_sql` bigint NOT NULL,
+--   `clazz_sql_debug` varchar(255) DEFAULT NULL,
+--   `creation_time` bigint NOT NULL,
+--   `id_java` varchar(255) NOT NULL,
+--   `version` bigint DEFAULT NULL,
+--   `version_num` varchar(255) DEFAULT NULL,
+--   PRIMARY KEY (`id_sql`)
+-- ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- /*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --
+-- -- Dumping data for table `entity_general`
+-- --
+
+-- LOCK TABLES `entity_general` WRITE;
+-- /*!40000 ALTER TABLE `entity_general` DISABLE KEYS */;
+-- INSERT INTO `entity_general` VALUES ('PanelSig',2,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NodeCreatedEvent',1,'com.redfrog.note.event.NodeCreatedEvent',1683056317021013000,'20230503/0337/57.283438400/+0800--20230503/0338/37.021013000/+0800--46',NULL,NULL),('PanelSig',4,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NodeMovedEvent',3,'com.redfrog.note.event.NodeMovedEvent',1683056317068011600,'20230503/0337/57.283438400/+0800--20230503/0338/37.068011600/+0800--47',NULL,NULL),('PanelSig',6,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NodeShapeSizeChangedEvent',5,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056317073013600,'20230503/0337/57.283438400/+0800--20230503/0338/37.073013600/+0800--48',NULL,NULL),('CanvasSig',8,'com.redfrog.note.general.role.CanvasSig',1683056317098010500,'20230503/0337/57.283438400/+0800--20230503/0338/37.098010500/+0800--49',NULL,NULL),('NodeCreatedEvent',7,'com.redfrog.note.event.NodeCreatedEvent',1683056317098010500,'20230503/0337/57.283438400/+0800--20230503/0338/37.098010500/+0800--50',NULL,NULL),('CanvasSig',10,'com.redfrog.note.general.role.CanvasSig',1683056317098010500,'20230503/0337/57.283438400/+0800--20230503/0338/37.098010500/+0800--49',NULL,NULL),('NodeShapeSizeChangedEvent',9,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056317101015000,'20230503/0337/57.283438400/+0800--20230503/0338/37.101015000/+0800--51',NULL,NULL),('ButtonSig',12,'com.redfrog.note.general.role.ButtonSig',1683056317204013700,'20230503/0337/57.283438400/+0800--20230503/0338/37.204013700/+0800--52',NULL,NULL),('NodeCreatedEvent',11,'com.redfrog.note.event.NodeCreatedEvent',1683056317204013700,'20230503/0337/57.283438400/+0800--20230503/0338/37.204013700/+0800--53',NULL,NULL),('PanelSig',14,'com.redfrog.note.general.role.PanelSig',1683056317211013500,'20230503/0337/57.283438400/+0800--20230503/0338/37.211013500/+0800--54',NULL,NULL),('NRCSCEvent',13,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056317212015100,'20230503/0337/57.283438400/+0800--20230503/0338/37.212015100/+0800--55',NULL,NULL),('PanelSig',16,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NRCSCEvent',15,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056317219013500,'20230503/0337/57.283438400/+0800--20230503/0338/37.219013500/+0800--56',NULL,NULL),('PanelSig',18,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NRCSCEvent',17,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056317221015000,'20230503/0337/57.283438400/+0800--20230503/0338/37.221015000/+0800--57',NULL,NULL),('UndoCheckpointPlacedEvent',19,'com.redfrog.note.event.traversal.UndoCheckpointPlacedEvent',1683056319070658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.070658200/+0800--58',NULL,NULL),('PanelSig',21,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('NodeCreatedEvent',20,'com.redfrog.note.event.NodeCreatedEvent',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--60',NULL,NULL),('PanelSig',23,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('NodeMovedEvent',22,'com.redfrog.note.event.NodeMovedEvent',1683056319077659300,'20230503/0337/57.283438400/+0800--20230503/0338/39.077659300/+0800--61',NULL,NULL),('PanelSig',25,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('NodeShapeSizeChangedEvent',24,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056319078660500,'20230503/0337/57.283438400/+0800--20230503/0338/39.078660500/+0800--62',NULL,NULL),('PanelSig',27,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('FunctionExecutionEvent',26,'com.redfrog.note.event.FunctionExecutionEvent',1683056319080690200,'20230503/0337/57.283438400/+0800--20230503/0338/39.080690200/+0800--63',NULL,NULL),('PanelSig',29,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('FunctionExecutionEvent',28,'com.redfrog.note.event.FunctionExecutionEvent',1683056319087658800,'20230503/0337/57.283438400/+0800--20230503/0338/39.087658800/+0800--64',NULL,NULL),('PanelSig',31,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('FunctionExecutionEvent',30,'com.redfrog.note.event.FunctionExecutionEvent',1683056319088658000,'20230503/0337/57.283438400/+0800--20230503/0338/39.088658000/+0800--65',NULL,NULL),('PanelSig',33,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NRCSCEvent',32,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056319091659300,'20230503/0337/57.283438400/+0800--20230503/0338/39.091659300/+0800--66',NULL,NULL),('TextAreaSig',35,'com.redfrog.note.general.role.TextAreaSig',1683056319099657000,'20230503/0337/57.283438400/+0800--20230503/0338/39.099657000/+0800--67',NULL,NULL),('NodeCreatedEvent',34,'com.redfrog.note.event.NodeCreatedEvent',1683056319099657000,'20230503/0337/57.283438400/+0800--20230503/0338/39.099657000/+0800--68',NULL,NULL),('TextAreaSig',37,'com.redfrog.note.general.role.TextAreaSig',1683056319099657000,'20230503/0337/57.283438400/+0800--20230503/0338/39.099657000/+0800--67',NULL,NULL),('NodeShapeSizeChangedEvent',36,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056319101689300,'20230503/0337/57.283438400/+0800--20230503/0338/39.101689300/+0800--69',NULL,NULL),('TextAreaSig',39,'com.redfrog.note.general.role.TextAreaSig',1683056319099657000,'20230503/0337/57.283438400/+0800--20230503/0338/39.099657000/+0800--67',NULL,NULL),('TextChangedEvent',38,'com.redfrog.note.event.TextChangedEvent',1683056319103657500,'20230503/0337/57.283438400/+0800--20230503/0338/39.103657500/+0800--70',NULL,NULL),('PanelSig',41,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('NRCSCEvent',40,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056319110657300,'20230503/0337/57.283438400/+0800--20230503/0338/39.110657300/+0800--71',NULL,NULL),('PanelSig',43,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('UndoCompensationStepAddedEvent',42,'com.redfrog.note.event.traversal.UndoCompensationStepAddedEvent',1683056319112657800,'20230503/0337/57.283438400/+0800--20230503/0338/39.112657800/+0800--72',NULL,NULL),('PanelSig',45,'com.redfrog.note.general.role.PanelSig',1683056319075658200,'20230503/0337/57.283438400/+0800--20230503/0338/39.075658200/+0800--59',NULL,NULL),('RedoCompensationStepAddedEvent',44,'com.redfrog.note.event.traversal.RedoCompensationStepAddedEvent',1683056319118657500,'20230503/0337/57.283438400/+0800--20230503/0338/39.118657500/+0800--73',NULL,NULL),('UndoCheckpointPlacedEvent',46,'com.redfrog.note.event.traversal.UndoCheckpointPlacedEvent',1683056319565133800,'20230503/0337/57.283438400/+0800--20230503/0338/39.565133800/+0800--74',NULL,NULL),('PanelSig',48,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeCreatedEvent',47,'com.redfrog.note.event.NodeCreatedEvent',1683056319570134200,'20230503/0337/57.283438400/+0800--20230503/0338/39.570134200/+0800--76',NULL,NULL),('PanelSig',50,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',49,'com.redfrog.note.event.NodeMovedEvent',1683056319574136200,'20230503/0337/57.283438400/+0800--20230503/0338/39.574136200/+0800--77',NULL,NULL),('PanelSig',52,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeShapeSizeChangedEvent',51,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056319578133800,'20230503/0337/57.283438400/+0800--20230503/0338/39.578133800/+0800--78',NULL,NULL),('PanelSig',54,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('FunctionExecutionEvent',53,'com.redfrog.note.event.FunctionExecutionEvent',1683056319582135100,'20230503/0337/57.283438400/+0800--20230503/0338/39.582135100/+0800--79',NULL,NULL),('PanelSig',56,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('FunctionExecutionEvent',55,'com.redfrog.note.event.FunctionExecutionEvent',1683056319584128400,'20230503/0337/57.283438400/+0800--20230503/0338/39.584128400/+0800--80',NULL,NULL),('PanelSig',58,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('FunctionExecutionEvent',57,'com.redfrog.note.event.FunctionExecutionEvent',1683056319586127600,'20230503/0337/57.283438400/+0800--20230503/0338/39.586127600/+0800--81',NULL,NULL),('PanelSig',60,'com.redfrog.note.general.role.PanelSig',1683056317020010800,'20230503/0337/57.283438400/+0800--20230503/0338/37.020010800/+0800--45',NULL,NULL),('NRCSCEvent',59,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056319589129000,'20230503/0337/57.283438400/+0800--20230503/0338/39.589129000/+0800--82',NULL,NULL),('TextAreaSig',62,'com.redfrog.note.general.role.TextAreaSig',1683056319591128900,'20230503/0337/57.283438400/+0800--20230503/0338/39.591128900/+0800--83',NULL,NULL),('NodeCreatedEvent',61,'com.redfrog.note.event.NodeCreatedEvent',1683056319591128900,'20230503/0337/57.283438400/+0800--20230503/0338/39.591128900/+0800--84',NULL,NULL),('TextAreaSig',64,'com.redfrog.note.general.role.TextAreaSig',1683056319591128900,'20230503/0337/57.283438400/+0800--20230503/0338/39.591128900/+0800--83',NULL,NULL),('NodeShapeSizeChangedEvent',63,'com.redfrog.note.event.NodeShapeSizeChangedEvent',1683056319593127900,'20230503/0337/57.283438400/+0800--20230503/0338/39.593127900/+0800--85',NULL,NULL),('TextAreaSig',66,'com.redfrog.note.general.role.TextAreaSig',1683056319591128900,'20230503/0337/57.283438400/+0800--20230503/0338/39.591128900/+0800--83',NULL,NULL),('TextChangedEvent',65,'com.redfrog.note.event.TextChangedEvent',1683056319595127600,'20230503/0337/57.283438400/+0800--20230503/0338/39.595127600/+0800--86',NULL,NULL),('PanelSig',68,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NRCSCEvent',67,'com.redfrog.note.event.NodeRelationshipContainmentStatusChangedEvent',1683056319597127100,'20230503/0337/57.283438400/+0800--20230503/0338/39.597127100/+0800--87',NULL,NULL),('PanelSig',70,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('UndoCompensationStepAddedEvent',69,'com.redfrog.note.event.traversal.UndoCompensationStepAddedEvent',1683056319599128600,'20230503/0337/57.283438400/+0800--20230503/0338/39.599128600/+0800--88',NULL,NULL),('PanelSig',72,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('RedoCompensationStepAddedEvent',71,'com.redfrog.note.event.traversal.RedoCompensationStepAddedEvent',1683056319600126600,'20230503/0337/57.283438400/+0800--20230503/0338/39.600126600/+0800--89',NULL,NULL),('UndoCheckpointPlacedEvent',73,'com.redfrog.note.event.traversal.UndoCheckpointPlacedEvent',1683056320611893500,'20230503/0337/57.283438400/+0800--20230503/0338/40.611893500/+0800--90',NULL,NULL),('PanelSig',75,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',74,'com.redfrog.note.event.NodeMovedEvent',1683056320632335200,'20230503/0337/57.283438400/+0800--20230503/0338/40.632335200/+0800--91',NULL,NULL),('PanelSig',77,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',76,'com.redfrog.note.event.NodeMovedEvent',1683056320641336900,'20230503/0337/57.283438400/+0800--20230503/0338/40.641336900/+0800--92',NULL,NULL),('PanelSig',79,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',78,'com.redfrog.note.event.NodeMovedEvent',1683056320648505600,'20230503/0337/57.283438400/+0800--20230503/0338/40.648505600/+0800--93',NULL,NULL),('PanelSig',81,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',80,'com.redfrog.note.event.NodeMovedEvent',1683056320656481200,'20230503/0337/57.283438400/+0800--20230503/0338/40.656481200/+0800--94',NULL,NULL),('PanelSig',83,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',82,'com.redfrog.note.event.NodeMovedEvent',1683056320665821200,'20230503/0337/57.283438400/+0800--20230503/0338/40.665821200/+0800--95',NULL,NULL),('PanelSig',85,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',84,'com.redfrog.note.event.NodeMovedEvent',1683056320672813400,'20230503/0337/57.283438400/+0800--20230503/0338/40.672813400/+0800--96',NULL,NULL),('PanelSig',87,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',86,'com.redfrog.note.event.NodeMovedEvent',1683056320680809000,'20230503/0337/57.283438400/+0800--20230503/0338/40.680809000/+0800--97',NULL,NULL),('PanelSig',89,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',88,'com.redfrog.note.event.NodeMovedEvent',1683056320696576400,'20230503/0337/57.283438400/+0800--20230503/0338/40.696576400/+0800--98',NULL,NULL),('PanelSig',91,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',90,'com.redfrog.note.event.NodeMovedEvent',1683056320698579300,'20230503/0337/57.283438400/+0800--20230503/0338/40.698579300/+0800--99',NULL,NULL),('PanelSig',93,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',92,'com.redfrog.note.event.NodeMovedEvent',1683056320713114500,'20230503/0337/57.283438400/+0800--20230503/0338/40.713114500/+0800--100',NULL,NULL),('PanelSig',95,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',94,'com.redfrog.note.event.NodeMovedEvent',1683056320714749000,'20230503/0337/57.283438400/+0800--20230503/0338/40.714749000/+0800--101',NULL,NULL),('PanelSig',97,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',96,'com.redfrog.note.event.NodeMovedEvent',1683056320728762300,'20230503/0337/57.283438400/+0800--20230503/0338/40.728762300/+0800--102',NULL,NULL),('PanelSig',99,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',98,'com.redfrog.note.event.NodeMovedEvent',1683056320745783200,'20230503/0337/57.283438400/+0800--20230503/0338/40.745783200/+0800--103',NULL,NULL),('PanelSig',101,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',100,'com.redfrog.note.event.NodeMovedEvent',1683056320761908200,'20230503/0337/57.283438400/+0800--20230503/0338/40.761908200/+0800--104',NULL,NULL),('PanelSig',103,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',102,'com.redfrog.note.event.NodeMovedEvent',1683056320764905500,'20230503/0337/57.283438400/+0800--20230503/0338/40.764905500/+0800--105',NULL,NULL),('PanelSig',105,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',104,'com.redfrog.note.event.NodeMovedEvent',1683056320779469000,'20230503/0337/57.283438400/+0800--20230503/0338/40.779469000/+0800--106',NULL,NULL),('PanelSig',107,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',106,'com.redfrog.note.event.NodeMovedEvent',1683056320798736800,'20230503/0337/57.283438400/+0800--20230503/0338/40.798736800/+0800--107',NULL,NULL),('PanelSig',109,'com.redfrog.note.general.role.PanelSig',1683056319569135300,'20230503/0337/57.283438400/+0800--20230503/0338/39.569135300/+0800--75',NULL,NULL),('NodeMovedEvent',108,'com.redfrog.note.event.NodeMovedEvent',1683056320804743000,'20230503/0337/57.283438400/+0800--20230503/0338/40.804743000/+0800--108',NULL,NULL);
+-- /*!40000 ALTER TABLE `entity_general` ENABLE KEYS */;
+-- UNLOCK TABLES;

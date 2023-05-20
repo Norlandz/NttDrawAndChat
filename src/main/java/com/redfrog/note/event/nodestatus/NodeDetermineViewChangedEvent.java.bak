@@ -1,0 +1,10 @@
+package com.redfrog.note.event.nodestatus;
+
+import com.redfrog.note.event.NodeEvent;
+import com.redfrog.note.fundamental.NodeSig;
+
+public abstract class NodeDetermineViewChangedEvent extends NodeEvent {
+  
+  public NodeDetermineViewChangedEvent(NodeSig nodeMain) { super(nodeMain); }
+
+}

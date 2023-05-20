@@ -1,0 +1,179 @@
+server.port: 0
+
+spring:
+  # pick one of the following Spring_profiles_group, base on the functionalities you need.
+
+  # use this, if you want just the plain functionaity eg: draw / text / container ...;
+  # you wont need to setup any Kafka / Mysql  
+  profiles.active: "plain" # @edit_this[pick one base on your need]
+  
+  # use this, if you want the plain functionaity + Network message communication by Kafka
+  # you will need to setup Kafka; you wont need to setup Mysql  
+#  profiles.active: "plain, Enable_ReceiveNetworkMsg" # @edit_this[pick one base on your need]
+
+  # use this, if you want the plain functionaity + Save Load file by Mysql
+  # you wont need to setup Kafka; you will need to setup MySql  
+#  profiles.active: "plain, Enable_LoadSaveFile" # @edit_this[pick one base on your need]
+
+  # use this, if you want the plain functionaity + Network message communication by Kafka + Save Load file by Mysql
+  # you will need to setup Kafka; you will need to setup MySql  
+  # (intended for production)
+#  profiles.active: "Enable_ReceiveNetworkMsg, Enable_LoadSaveFile" # @edit_this[pick one base on your need]
+
+cpy.rf.ntt.drc:
+  det-WhenRedirectOutputStream-RedirectStderrToo: false # @edit_this[if you like] # true: to redirect (copy) console stderr to TextArea too; note: if true, makes the console stderr not red ...
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "plain"
+      
+cpy.rf.ntt.drc:
+  det-DisableReceiveNetworkMsg-Kafka: true
+  det-DisableLoadSaveFile-Mysql: true
+      
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "Enable_ReceiveNetworkMsg | prod"
+      
+cpy.rf.ntt.drc:
+  det-DisableReceiveNetworkMsg-Kafka: false
+  kafka:
+    bootstrap.servers: "localhost:9092" # @edit_this[base on your Config]
+    kTopicName:
+      NodeEvent-All-Prepend: "Drc_NodeEvent_All-" # @edit_this[if you like] # 2 topics will created on Kafka, their names will be prepended with this String 
+  
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "Enable_LoadSaveFile | prod"
+  ds-mysql-01:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    jdbc-url: jdbc:mysql://localhost:3306/db_drawandchat_01 # @edit_this[base on your Config] # database name is hardcoded (seems); (other type of database (not mysql) may not be supported);
+    password: mysql # @edit_this[base on your Config]
+    username: root # @edit_this[base on your Config]
+  ds-mysql-02: # db02 is mainly for debugging 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    jdbc-url: jdbc:mysql://localhost:3306/db_drawandchat_02 # @edit_this[^]
+    password: mysql # @edit_this[^] # password & username should be same as db01
+    username: root # @edit_this[^]
+
+cpy.rf.ntt.drc:
+  det-DisableLoadSaveFile-Mysql: false
+  loadSaveFile:
+    pathStr-drcFileSave: "H:\\DrawAndChatApp_db" # @edit_this[base on your Config] # default path for save & load the file
+    pathStr-mysqldump: "C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump.exe" # @edit_this[base on your Config] # path to mysqldump
+    pathStr-mysql: "C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysql.exe" # @edit_this[base on your Config] # path to mysql # you can just put `mysql` if your env var is properly set (seems)
+
+
+#---
+#
+#spring:
+#  config:
+#    activate:
+#      on-profile: "empty"
+#      
+## @do_nothing
+
+
+## -------------- 
+
+#.\zookeeper-server-start.bat ..\..\config\zookeeper.properties
+#.\kafka-server-start.bat ..\..\config\server.properties
+#java -jar kafka-ui-api-v0.6.2.jar --spring.config.additional.location=application.yml
+
+#java -jar app.jar --spring.config.location=file:///Users/home/config/jdbc.properties
+
+#java -jar .\DrawAndChatApp-0.2.35.2-SNAPSHOT.jar --spring.config.additional-location=.\application.yml
+
+
+
+## ---------------------------- 
+
+## ~// #spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+## ~// #spring.jpa.hibernate.ddl-auto=update
+## ~// #
+## ~// #spring.datasource.url=jdbc:mysql://localhost:3306/db_test
+## ~// ##spring.datasource.url=jdbc:mysql://localhost:3306/db_test?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
+## ~// #spring.datasource.username=root
+## ~// #spring.datasource.password=mysql
+## ~// #spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+## ~// 
+## ~// #spring.jpa.show-sql: true
+## ~// 
+## ~// #spring.jpa.hibernate.naming.physical-strategy=org.springframework.boot.orm.jpa.SpringNamingStrategy
+#
+## ----------- More settings please see :: MultipleDbSpringConfig.java
+#
+## Make sure the db db_drawandchat_01~09 doesnt conflict with any of your existing db.
+#
+## ~~~// spring.jpa.properties.hibernate.order_inserts=true
+## ~~~// spring.jpa.properties.hibernate.jdbc.batch_size=30
+## ~~~// 
+## ~~~// spring.ds-mysql-01.jdbc-url=jdbc:mysql://localhost:3306/db_drawandchat_01?cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
+## ~~~// this is even slower? ... 
+#
+##cpy.rf.ntt.drc.det-DisableReceiveNetworkMsg-Kafka=true
+##cpy.rf.ntt.drc.det-DisableLoadSaveFile-Mysql=true
+#
+#spring.ds-mysql-01.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+#spring.ds-mysql-01.jdbc-url=jdbc:mysql://localhost:3306/db_drawandchat_01
+#spring.ds-mysql-01.username=root
+#spring.ds-mysql-01.password=mysql
+#spring.ds-mysql-01.driver-class-name=com.mysql.cj.jdbc.Driver
+##spring.ds-mysql-01.hibernate.ddl-auto=update
+#
+#spring.ds-mysql-02.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+#spring.ds-mysql-02.jdbc-url=jdbc:mysql://localhost:3306/db_drawandchat_02
+#spring.ds-mysql-02.username=root
+#spring.ds-mysql-02.password=mysql
+#spring.ds-mysql-02.driver-class-name=com.mysql.cj.jdbc.Driver
+##spring.ds-mysql-02.hibernate.ddl-auto=update
+#
+## ~~~// #spring.ds-mysql-03.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+## ~~~// #spring.ds-mysql-03.jdbc-url=jdbc:mysql://localhost:3306/db_drawandchat_03
+## ~~~// #spring.ds-mysql-03.username=root
+## ~~~// #spring.ds-mysql-03.password=mysql
+## ~~~// #spring.ds-mysql-03.driver-class-name=com.mysql.cj.jdbc.Driver
+## ~~~// #
+## ~~~// #spring.ds-mysql-04.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+## ~~~// #spring.ds-mysql-04.jdbc-url=jdbc:mysql://localhost:3306/db_drawandchat_04
+## ~~~// #spring.ds-mysql-04.username=root
+## ~~~// #spring.ds-mysql-04.password=mysql
+## ~~~// #spring.ds-mysql-04.driver-class-name=com.mysql.cj.jdbc.Driver
+#
+#
+## -----------
+#
+## ~~~// #logging.level.org.hibernate.SQL=DEBUG
+## ~~~// #logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+## ~~~// #logging.level.org.hibernate.type=trace
+## ~~~// #org.hibernate.engine.jdbc.batch.internal.BatchingBatch=TRACE
+## ~~~// #https://stackoverflow.com/questions/30118683/how-can-i-log-sql-statements-in-spring-boot
+## ~~~// 
+## ~~~// ## logs the SQL statements
+## ~~~// #log4j.logger.org.hibernate.SQL=debug 
+## ~~~// #
+## ~~~// ## Logs the JDBC parameters passed to a query
+## ~~~// #log4j.logger.org.hibernate.type=trace 
+#
+##logging.level.org.hibernate.SQL=DEBUG
+##logging.level.org.hibernate.type=TRACE
+## https://stackoverflow.com/questions/1710476/how-to-print-a-query-string-with-parameter-values-when-using-hibernate
+#
+## -----------
+#
+## ~// #bootstrap.servers=localhost:9092
+## ~// #key.serializer=org.apache.kafka.common.serialization.StringSerializer
+## ~// #key.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+## ~// #value.serializer=com.redfrog.note.serialization.MouseEventSerializer
+## ~// #value.deserializer=com.redfrog.note.serialization.MouseEventDeserializer
