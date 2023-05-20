@@ -19,4 +19,6 @@
 
 ### How to use
 
-[[Link to Instructions / Documentation] https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+_(all the above contents are repeated (- extracted) from the following documentation)_
+
+[[Link to Instructions / Documentation] https://norlandz.github.io/NttDrawAndChat/](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
