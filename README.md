@@ -1,3 +1,17 @@
+<br>
+<br>
+<br>
+
+## [Link to Instructions / Documentation](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+## [Link to Instructions / Documentation](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+## [Link to Instructions / Documentation](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
+
+<br>
+<br>
+<br>
+
+---
+
 ## NttDrawAndChat
 
 [![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://norlandz.github.io/NttDrawAndChat/DrawAndChatApp_Instruction/html/outhwp.html)
